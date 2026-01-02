@@ -1,0 +1,108 @@
+Build a clean, modern, production-ready e-commerce website for the brand "Choco Blossom India" using HTML, CSS and JavaScript.
+
+The store sells handmade chocolates, gift hampers, personalized gift combos and festive gift boxes. The design should look elegant, premium, gifting-oriented and trustworthy.
+
+IMPORTANT CODE REQUIREMENTS:
+• Use semantic HTML5 structure
+• Use external CSS (no inline styles)
+• Create reusable CSS classes
+• Make it fully responsive (mobile-first)
+• Use clean typography, spacing and section gaps
+• Keep code readable and organized
+• Include hover states for buttons and cards
+
+==== HOMEPAGE LAYOUT ====
+
+SECTION 1 — HERO BANNER
+• Large hero section with premium chocolate hamper image placeholder
+Heading: "Handmade Chocolate Gifts & Hampers — Freshly Made in Ahmedabad"
+Sub-text (smaller):
+"Same-day delivery in Ahmedabad • Free Delivery above ₹1500 (Gujarat)"
+Primary CTA buttons:
+• Shop Chocolate Hampers
+• Personalized Gift Combos
+Add trust badges row with icons:
+✔ Fresh Handmade
+✔ Premium Quality Ingredients
+✔ Safe & Hygienic Packaging
+
+SECTION 2 — SHOP BY CATEGORY GRID (cards)
+Categories to include:
+• Chocolate Gift Hampers
+• Personalized Gift Combos
+• Birthday & Anniversary Gifts
+• Bhai-Bhabhi / Rakhi Gifts
+• Assorted Chocolate Boxes
+• Corporate & Bulk Gifts
+Each card should include:
+image placeholder + title + “Shop Now” button
+
+SECTION 3 — BESTSELLERS PRODUCT GRID
+Display 6–8 sample products with:
+• product image placeholder
+• product title
+• price in INR
+• 5-star rating display
+• Add to Cart button
+
+SECTION 4 — WHY CUSTOMERS LOVE US (icon features)
+✔ Freshly Made to Order
+✔ Premium Chocolate Quality
+✔ Same-Day Local Delivery
+✔ Custom & Personalized Gifts
+✔ Elegant Gift Packaging
+✔ Trusted by 250+ Happy Customers
+
+SECTION 5 — SEASONAL COLLECTION HIGHLIGHT
+Title: "Valentine’s & Anniversary Hampers"
+CTA: Browse Romantic Hampers
+
+SECTION 6 — DELIVERY INFO BAR
+Show 3 info badges:
+• Same-Day Delivery in Ahmedabad (order before 3 PM)
+• Free Delivery above ₹1500 in Gujarat
+• Free Delivery above ₹2500 Pan-India
+
+SECTION 7 — CUSTOMER REVIEWS
+Add 3 sample 5-star testimonials with names
+
+SECTION 8 — INSTAGRAM STYLE GALLERY GRID
+Image placeholders for real hamper packaging photos
+
+SECTION 9 — CUSTOM GIFT CTA
+Title: "Need a Custom Chocolate Hamper?"
+Buttons:
+• WhatsApp Us
+• Call Now
+
+==== PRODUCT PAGE TEMPLATE ====
+
+Create a product page template with:
+
+• Large product image (main)
+• Product title
+• Price in INR
+• Short description
+• “What’s included” bullet list
+• Delivery message:
+"Same-day delivery in Ahmedabad available"
+• Trust badges (freshness / hygiene / quality)
+• Add to Cart button
+• Related products section
+
+==== TECHNICAL + SEO ====
+
+Include:
+• meaningful class names
+• meta title + meta description placeholders
+• alt text for all product and category images
+
+Focus keywords:
+"Handmade Chocolate Gifts Ahmedabad"
+"Chocolate Gift Hampers India"
+"Premium Chocolate Gifting"
+
+==== FINAL NOTES ====
+Design should feel premium, elegant, warm and gifting-oriented.
+Avoid clutter. Use good spacing and consistent layout.
+Ensure full mobile responsiveness.
