@@ -1,18 +1,62 @@
-import { sql } from "drizzle-orm";
-import { pgTable, text, varchar } from "drizzle-orm/pg-core";
+import { pgTable, text, serial, integer, boolean, timestamp, numeric } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
-export const users = pgTable("users", {
-  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
-  username: text("username").notNull().unique(),
-  password: text("password").notNull(),
+// === TABLE DEFINITIONS ===
+
+export const categories = pgTable("categories", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  slug: text("slug").notNull().unique(),
+  image: text("image").notNull(), // Placeholder image URL
 });
 
-export const insertUserSchema = createInsertSchema(users).pick({
-  username: true,
-  password: true,
+export const products = pgTable("products", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  description: text("description").notNull(),
+  price: numeric("price").notNull(),
+  categoryId: integer("category_id").references(() => categories.id),
+  image: text("image").notNull(),
+  isBestseller: boolean("is_bestseller").default(false),
+  rating: integer("rating").default(5), // 1-5
 });
 
-export type InsertUser = z.infer<typeof insertUserSchema>;
-export type User = typeof users.$inferSelect;
+export const reviews = pgTable("reviews", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  rating: integer("rating").notNull(),
+  comment: text("comment").notNull(),
+  avatar: text("avatar"), // Optional avatar URL
+});
+
+export const enquiries = pgTable("enquiries", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  email: text("email").notNull(),
+  message: text("message").notNull(),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
+// === SCHEMAS ===
+
+export const insertCategorySchema = createInsertSchema(categories).omit({ id: true });
+export const insertProductSchema = createInsertSchema(products).omit({ id: true });
+export const insertReviewSchema = createInsertSchema(reviews).omit({ id: true });
+export const insertEnquirySchema = createInsertSchema(enquiries).omit({ id: true, createdAt: true });
+
+// === EXPLICIT TYPES ===
+
+export type Category = typeof categories.$inferSelect;
+export type InsertCategory = z.infer<typeof insertCategorySchema>;
+
+export type Product = typeof products.$inferSelect;
+export type InsertProduct = z.infer<typeof insertProductSchema>;
+
+export type Review = typeof reviews.$inferSelect;
+export type InsertReview = z.infer<typeof insertReviewSchema>;
+
+export type Enquiry = typeof enquiries.$inferSelect;
+export type InsertEnquiry = z.infer<typeof insertEnquirySchema>;
+
+export type ContactRequest = InsertEnquiry;
