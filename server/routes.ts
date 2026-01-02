@@ -136,6 +136,48 @@ export async function seedDatabase() {
         ],
         isBestseller: false
       },
+      { 
+        name: "Festive Delight Box", 
+        description: "A perfect mix of nuts and chocolates for festive gifting.", 
+        includedItems: "Roasted Almonds, Cashews, Dark Chocolate Bites, Festive Box",
+        price: "999", 
+        categoryId: cats[3].id,
+        images: [
+          "https://images.unsplash.com/photo-1607344645866-009c320c5af8?w=800&q=80",
+          "https://images.unsplash.com/photo-1548907040-4baa42d10919?w=800&q=80",
+          "https://images.unsplash.com/photo-1549488344-c7052fb51c52?w=800&q=80",
+          "https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=800&q=80"
+        ],
+        isBestseller: true
+      },
+      { 
+        name: "Dark Chocolate Truffles", 
+        description: "Intense 70% dark chocolate truffles for the connoisseur.", 
+        includedItems: "12 Dark Chocolate Truffles, Gold Foil Wrap, Gourmet Box",
+        price: "650", 
+        categoryId: cats[4].id,
+        images: [
+          "https://images.unsplash.com/photo-1548907040-4baa42d10919?w=800&q=80",
+          "https://images.unsplash.com/photo-1549488344-c7052fb51c52?w=800&q=80",
+          "https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=800&q=80",
+          "https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=800&q=80"
+        ],
+        isBestseller: true
+      },
+      { 
+        name: "Signature Corporate Set", 
+        description: "Elegant branding options available for bulk orders.", 
+        includedItems: "Custom Brand Logo Box, Assorted Gourmet Chocolates, Corporate Greeting Card",
+        price: "2000", 
+        categoryId: cats[5].id,
+        images: [
+          "https://images.unsplash.com/photo-1549488344-c7052fb51c52?w=800&q=80",
+          "https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=800&q=80",
+          "https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=800&q=80",
+          "https://images.unsplash.com/photo-1548907040-4baa42d10919?w=800&q=80"
+        ],
+        isBestseller: false
+      },
     ]);
 
     // Insert Reviews

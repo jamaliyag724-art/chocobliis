@@ -112,9 +112,13 @@ export default function Home() {
                     className="group relative h-96 rounded-2xl overflow-hidden cursor-pointer shadow-md"
                   >
                     <img 
-                      src={category.image} 
+                      src={category.image || "/images/product-placeholder.jpg"} 
                       alt={category.name}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      loading="lazy"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = "/images/product-placeholder.jpg";
+                      }}
                     />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
                     <div className="absolute bottom-0 left-0 right-0 p-8 text-white bg-gradient-to-t from-black/80 to-transparent">

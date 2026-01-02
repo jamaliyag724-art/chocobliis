@@ -23,9 +23,13 @@ export function ProductCard({ product }: ProductCardProps) {
     >
       <Link href={`/product/${product.id}`} className="block relative aspect-square overflow-hidden bg-secondary/20">
         <img
-          src={product.image}
+          src={product.images?.[0] || "/images/product-placeholder.jpg"}
           alt={product.name}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          loading="lazy"
+          onError={(e) => {
+            (e.target as HTMLImageElement).src = "/images/product-placeholder.jpg";
+          }}
         />
         {product.isBestseller && (
           <div className="absolute top-3 left-3 bg-accent text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">

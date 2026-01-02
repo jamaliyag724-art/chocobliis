@@ -1,3 +1,4 @@
+import { sql } from "drizzle-orm";
 import { pgTable, text, serial, integer, boolean, timestamp, numeric } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
@@ -18,7 +19,7 @@ export const products = pgTable("products", {
   includedItems: text("included_items").notNull().default(""), // Bullet list as text
   price: numeric("price").notNull(),
   categoryId: integer("category_id").references(() => categories.id),
-  images: text("images").array().notNull(), // Array of 4-5 images
+  images: text("images").array().notNull().default(sql`ARRAY[]::text[]`), // Array of 4-5 images
   isBestseller: boolean("is_bestseller").default(false),
   rating: integer("rating").default(5), // 1-5
 });
