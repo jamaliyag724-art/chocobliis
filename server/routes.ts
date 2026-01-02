@@ -84,7 +84,7 @@ export async function seedDatabase() {
     
     // Insert Categories
     const cats = await db.insert(categories).values([
-      { name: "Chocolate Gift Hampers", slug: "hampers", image: "https://images.unsplash.com/photo-1606313564200-9e32e3c2c8d4?w=800&q=80"},
+      { name: "Chocolate Gift Hampers", slug: "hampers", image: "file:///Users/Gaurang/Downloads/box.jpg"},
       { name: "Personalized Gift Combos", slug: "personalized", image: "https://images.unsplash.com/photo-1620980776848-8531bacde755?w=800&q=80" },
       { name: "Birthday & Anniversary", slug: "occasions", image: "https://images.unsplash.com/photo-1512909006721-3d6018887383?w=800&q=80" },
       { name: "Bhai-Bhabhi / Rakhi Gifts", slug: "festive", image: "https://images.unsplash.com/photo-1607344645866-009c320c5af8?w=800&q=80" },
