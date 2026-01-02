@@ -8,6 +8,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Minus, Plus, Star, Truck, ShieldCheck, Gift, ArrowLeft, Maximize2 } from "lucide-react";
 import { ProductCard } from "@/components/ProductCard";
 import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 export default function ProductDetail() {
   const [, params] = useRoute("/product/:id");
