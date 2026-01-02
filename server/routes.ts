@@ -97,49 +97,43 @@ export async function seedDatabase() {
       { 
         name: "Premium Luxury Hamper", 
         description: "An exquisite collection of our finest handmade chocolates, elegantly packaged.", 
+        includedItems: "12 Assorted Truffles, 2 Dark Chocolate Bars, Premium Gifting Box, Personalized Note",
         price: "1500", 
         categoryId: cats[0].id,
-        image: "https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=800&q=80",
+        images: [
+          "https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=800&q=80",
+          "https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=800&q=80",
+          "https://images.unsplash.com/photo-1548907040-4baa42d10919?w=800&q=80",
+          "https://images.unsplash.com/photo-1549488344-c7052fb51c52?w=800&q=80"
+        ],
         isBestseller: true
       },
       { 
         name: "Custom Message Box", 
         description: "Spell out your love with our personalized alphabet chocolates.", 
+        includedItems: "Personalized Alphabet Chocolates, Luxury Hardbound Box, Gift Card",
         price: "850", 
         categoryId: cats[1].id,
-        image: "https://images.unsplash.com/photo-1620980776848-8531bacde755?w=800&q=80",
+        images: [
+          "https://images.unsplash.com/photo-1620980776848-8531bacde755?w=800&q=80",
+          "https://images.unsplash.com/photo-1512909006721-3d6018887383?w=800&q=80",
+          "https://images.unsplash.com/photo-1518685632879-1c8c38279e88?w=800&q=80",
+          "https://images.unsplash.com/photo-1607344645866-009c320c5af8?w=800&q=80"
+        ],
         isBestseller: true
       },
       { 
         name: "Anniversary Special Heart", 
         description: "Heart-shaped assorted truffles for your special someone.", 
+        includedItems: "16 Heart Shaped Truffles, Velvet Lined Box, Ribbon Decoration",
         price: "1200", 
         categoryId: cats[2].id,
-        image: "https://images.unsplash.com/photo-1518685632879-1c8c38279e88?w=800&q=80",
-        isBestseller: false
-      },
-       { 
-        name: "Festive Delight Box", 
-        description: "A perfect mix of nuts and chocolates for festive gifting.", 
-        price: "999", 
-        categoryId: cats[3].id,
-        image: "https://images.unsplash.com/photo-1607344645866-009c320c5af8?w=800&q=80",
-        isBestseller: true
-      },
-       { 
-        name: "Dark Chocolate Truffles", 
-        description: "Intense 70% dark chocolate truffles for the connoisseur.", 
-        price: "650", 
-        categoryId: cats[4].id,
-        image: "https://images.unsplash.com/photo-1548907040-4baa42d10919?w=800&q=80",
-        isBestseller: true
-      },
-       { 
-        name: "Signature Corporate Set", 
-        description: "Elegant branding options available for bulk orders.", 
-        price: "2000", 
-        categoryId: cats[5].id,
-        image: "https://images.unsplash.com/photo-1549488344-c7052fb51c52?w=800&q=80",
+        images: [
+          "https://images.unsplash.com/photo-1518685632879-1c8c38279e88?w=800&q=80",
+          "https://images.unsplash.com/photo-1512909006721-3d6018887383?w=800&q=80",
+          "https://images.unsplash.com/photo-1620980776848-8531bacde755?w=800&q=80",
+          "https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=800&q=80"
+        ],
         isBestseller: false
       },
     ]);

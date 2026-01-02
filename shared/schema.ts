@@ -15,9 +15,10 @@ export const products = pgTable("products", {
   id: serial("id").primaryKey(),
   name: text("name").notNull(),
   description: text("description").notNull(),
+  includedItems: text("included_items").notNull().default(""), // Bullet list as text
   price: numeric("price").notNull(),
   categoryId: integer("category_id").references(() => categories.id),
-  image: text("image").notNull(),
+  images: text("images").array().notNull(), // Array of 4-5 images
   isBestseller: boolean("is_bestseller").default(false),
   rating: integer("rating").default(5), // 1-5
 });
