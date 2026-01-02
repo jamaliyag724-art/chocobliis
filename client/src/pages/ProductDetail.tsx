@@ -50,7 +50,9 @@ export default function ProductDetail() {
   }
 
   const relatedProducts = allProducts?.filter(p => p.categoryId === product.categoryId && p.id !== product.id).slice(0, 4) || [];
-  const images = product.images && product.images.length > 0 ? product.images : ["/images/product-placeholder.jpg"];
+  const images = product.images && product.images.length > 0 
+    ? product.images 
+    : ["/images/product-placeholder.jpg"];
   const includedItems = product.includedItems ? product.includedItems.split(",").map(item => item.trim()) : [];
 
   return (
@@ -72,7 +74,7 @@ export default function ProductDetail() {
                 key={mainImageIndex}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                src={images[mainImageIndex]} 
+                src={images[mainImageIndex] || "/images/product-placeholder.jpg"} 
                 alt={product.name} 
                 className="w-full h-full object-cover transition-transform duration-500 md:group-hover:scale-110"
                 onError={(e) => {
