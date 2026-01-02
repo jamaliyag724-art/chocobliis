@@ -62,10 +62,18 @@ export function CartDrawer() {
                     </div>
                     <div className="flex-1 flex flex-col justify-between">
                       <div className="flex justify-between items-start gap-2">
-                        <h4 className="font-medium font-serif line-clamp-2 leading-tight">{item.name}</h4>
+                        <div>
+                          <h4 className="font-medium font-serif line-clamp-2 leading-tight">{item.name}</h4>
+                          {item.personalizationMessage && (
+                            <div className="mt-1 p-2 bg-accent/5 rounded border border-accent/10">
+                              <p className="text-[10px] uppercase tracking-wider text-accent font-bold mb-0.5">Gift Message:</p>
+                              <p className="text-xs text-primary/80 italic leading-tight">"{item.personalizationMessage}"</p>
+                            </div>
+                          )}
+                        </div>
                         <button 
                           onClick={() => removeFromCart(item.id)}
-                          className="text-muted-foreground hover:text-destructive transition-colors"
+                          className="text-muted-foreground hover:text-destructive transition-colors shrink-0"
                         >
                           <Trash2 className="w-4 h-4" />
                         </button>

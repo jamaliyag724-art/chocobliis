@@ -4,11 +4,12 @@ import { useToast } from "@/hooks/use-toast";
 
 type CartItem = Product & {
   quantity: number;
+  personalizationMessage?: string;
 };
 
 interface CartContextType {
   items: CartItem[];
-  addToCart: (product: Product, quantity?: number) => void;
+  addToCart: (product: Product, quantity?: number, personalizationMessage?: string) => void;
   removeFromCart: (productId: number) => void;
   updateQuantity: (productId: number, quantity: number) => void;
   clearCart: () => void;
@@ -42,17 +43,17 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     localStorage.setItem("choco-cart", JSON.stringify(items));
   }, [items]);
 
-  const addToCart = (product: Product, quantity = 1) => {
+  const addToCart = (product: Product, quantity = 1, personalizationMessage?: string) => {
     setItems((prev) => {
-      const existing = prev.find((item) => item.id === product.id);
+      const existing = prev.find((item) => item.id === product.id && item.personalizationMessage === personalizationMessage);
       if (existing) {
         return prev.map((item) =>
-          item.id === product.id
+          item.id === product.id && item.personalizationMessage === personalizationMessage
             ? { ...item, quantity: item.quantity + quantity }
             : item
         );
       }
-      return [...prev, { ...product, quantity }];
+      return [...prev, { ...product, quantity, personalizationMessage }];
     });
     setIsCartOpen(true);
     toast({

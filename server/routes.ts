@@ -96,7 +96,7 @@ export async function seedDatabase() {
     await db.insert(products).values([
       { 
         name: "Premium Luxury Hamper", 
-        description: "An exquisite collection of our finest handmade chocolates, elegantly packaged. Perfect for special celebrations and premium gifting.", 
+        description: "Surprise your loved ones with an unforgettable gifting experience. Our Premium Luxury Hamper features an exquisite collection of our finest handmade chocolates, elegantly packaged for those who appreciate true craftsmanship. Each piece is crafted with premium cocoa and fresh ingredients to ensure a rich, decadent taste that makes every occasion special.", 
         includedItems: "12 Assorted Truffles, 2 Dark Chocolate Bars, Premium Gifting Box, Personalized Note, Silk Ribbon",
         price: "1500", 
         categoryId: cats[0].id,
@@ -108,11 +108,13 @@ export async function seedDatabase() {
           "https://images.unsplash.com/photo-1526081347589-7fa3cb41b4b2?w=800&q=80"
         ],
         isBestseller: true,
-        rating: 5
+        rating: 5,
+        storageInstructions: "Store in a cool, dry place (18-22°C). Avoid refrigeration to preserve texture.",
+        shelfLife: "30 days"
       },
       { 
         name: "Custom Message Box", 
-        description: "Spell out your love with our personalized alphabet chocolates. A unique way to share your feelings.", 
+        description: "Express your emotions in the sweetest way possible. Spell out your love with our personalized alphabet chocolates, handcrafted to perfection. A unique and premium gifting option for someone who deserves a personalized touch. Made fresh to order with premium handmade chocolates.", 
         includedItems: "Personalized Alphabet Chocolates, Luxury Hardbound Box, Gift Card, Custom Wrapping",
         price: "850", 
         categoryId: cats[1].id,
@@ -124,11 +126,13 @@ export async function seedDatabase() {
           "https://images.unsplash.com/photo-1553452118-621e1f860f43?w=800&q=80"
         ],
         isBestseller: true,
-        rating: 5
+        rating: 5,
+        storageInstructions: "Keep away from heat and direct sunlight. Best stored at room temperature.",
+        shelfLife: "45 days"
       },
       { 
         name: "Anniversary Special Heart", 
-        description: "Heart-shaped assorted truffles for your special someone. Beautifully handcrafted designs for a romantic touch.", 
+        description: "Make your anniversary truly memorable with a touch of romance. Our Heart-shaped assorted truffles are beautifully handcrafted to represent your love. This gift hamper is designed for premium gifting, combining exquisite taste with a luxurious presentation that speaks volumes.", 
         includedItems: "16 Heart Shaped Truffles, Velvet Lined Box, Ribbon Decoration, Rose Petals",
         price: "1200", 
         categoryId: cats[2].id,
@@ -140,11 +144,13 @@ export async function seedDatabase() {
           "https://images.unsplash.com/photo-1548907040-4baa42d10919?w=800&q=80"
         ],
         isBestseller: false,
-        rating: 5
+        rating: 5,
+        storageInstructions: "Consume immediately for best flavor. Store in a cool place.",
+        shelfLife: "20 days"
       },
       { 
         name: "Festive Delight Box", 
-        description: "A perfect mix of nuts and chocolates for festive gifting. Joy in every bite.", 
+        description: "Celebrate the joy of festivals with a perfect blend of tradition and taste. This Delight Box offers a premium mix of nuts and chocolates, curated for festive gifting. Each bite is a testament to our commitment to quality and freshness, making it a favorite for family and friends alike.", 
         includedItems: "Roasted Almonds, Cashews, Dark Chocolate Bites, Festive Box, Traditional Diya",
         price: "999", 
         categoryId: cats[3].id,
@@ -156,11 +162,13 @@ export async function seedDatabase() {
           "https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=800&q=80"
         ],
         isBestseller: true,
-        rating: 5
+        rating: 5,
+        storageInstructions: "Store nuts in airtight containers after opening. Keep chocolates cool.",
+        shelfLife: "60 days"
       },
       { 
         name: "Dark Chocolate Truffles", 
-        description: "Intense 70% dark chocolate truffles for the connoisseur. Deep, rich, and sophisticated flavors.", 
+        description: "Indulge in the sophisticated world of gourmet chocolates. Our Dark Chocolate Truffles are made with intense 70% cocoa for the ultimate connoisseur experience. Handcrafted and rich in antioxidants, these truffles are a premium gifting choice for those who love deep, bold flavors.", 
         includedItems: "12 Dark Chocolate Truffles, Gold Foil Wrap, Gourmet Box, Tasting Notes",
         price: "650", 
         categoryId: cats[4].id,
@@ -172,11 +180,13 @@ export async function seedDatabase() {
           "https://images.unsplash.com/photo-1607344645866-009c320c5af8?w=800&q=80"
         ],
         isBestseller: true,
-        rating: 5
+        rating: 5,
+        storageInstructions: "Dark chocolate is sensitive to odors. Store away from strong smelling foods.",
+        shelfLife: "90 days"
       },
       { 
         name: "Signature Corporate Set", 
-        description: "Elegant branding options available for bulk orders. Professional gifting made sweet.", 
+        description: "Elevate your professional relationships with our Signature Corporate Set. Designed for premium gifting, these sets offer elegant branding options and a selection of our finest handmade chocolates. Impress your clients and partners with a gift that reflects quality and professional excellence.", 
         includedItems: "Custom Brand Logo Box, Assorted Gourmet Chocolates, Corporate Greeting Card, Bulk Discount Eligibility",
         price: "2000", 
         categoryId: cats[5].id,
@@ -188,7 +198,9 @@ export async function seedDatabase() {
           "https://images.unsplash.com/photo-1518685632879-1c8c38279e88?w=800&q=80"
         ],
         isBestseller: false,
-        rating: 5
+        rating: 5,
+        storageInstructions: "Ideal for office environments. Keep in a cool, dark place.",
+        shelfLife: "45 days"
       },
     ]);
 

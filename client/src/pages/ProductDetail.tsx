@@ -5,10 +5,12 @@ import { useCart } from "@/hooks/use-cart";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Minus, Plus, Star, Truck, ShieldCheck, Gift, ArrowLeft, Maximize2 } from "lucide-react";
+import { Minus, Plus, Star, Truck, ShieldCheck, Gift, ArrowLeft, Maximize2, Info, Clock, CheckCircle } from "lucide-react";
 import { ProductCard } from "@/components/ProductCard";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 export default function ProductDetail() {
   const [, params] = useRoute("/product/:id");
@@ -19,6 +21,7 @@ export default function ProductDetail() {
   const [quantity, setQuantity] = useState(1);
   const [mainImageIndex, setMainImageIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [giftMessage, setGiftMessage] = useState("");
 
   if (isLoading) {
     return (
@@ -131,16 +134,22 @@ export default function ProductDetail() {
             </div>
 
             <div className="prose prose-stone text-muted-foreground mb-8">
-              <p>{product.description}</p>
+              <p className="text-lg leading-relaxed text-primary/80 italic font-serif border-l-4 border-accent pl-4">
+                {product.description.split('. ')[0]}.
+              </p>
+              <p className="mt-4">{product.description.split('. ').slice(1).join('. ')}</p>
             </div>
 
             {includedItems.length > 0 && (
               <div className="mb-8">
-                <h4 className="font-serif font-bold text-primary mb-3">What's included:</h4>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <h4 className="font-serif font-bold text-primary mb-3 flex items-center gap-2">
+                  <Gift className="w-5 h-5 text-accent" />
+                  What's included:
+                </h4>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 bg-secondary/10 p-4 rounded-xl">
                   {includedItems.map((item, idx) => (
                     <li key={idx} className="flex items-center text-sm text-muted-foreground">
-                      <div className="w-1.5 h-1.5 rounded-full bg-accent mr-2 shrink-0" />
+                      <CheckCircle className="w-4 h-4 text-accent mr-2 shrink-0" />
                       {item}
                     </li>
                   ))}
@@ -148,25 +157,71 @@ export default function ProductDetail() {
               </div>
             )}
 
-            <div className="bg-secondary/20 rounded-xl p-6 mb-8 space-y-4">
-              <div className="flex items-start gap-3">
-                <Truck className="w-5 h-5 text-primary mt-0.5" />
-                <div>
-                  <h4 className="font-bold text-sm text-primary">Delivery Message</h4>
-                  <p className="text-xs text-muted-foreground">
-                    Same-day delivery in Ahmedabad available for orders before 3 PM.
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+              <div className="space-y-4">
+                <h4 className="font-serif font-bold text-primary flex items-center gap-2">
+                  <Star className="w-4 h-4 text-accent" />
+                  Perfect For
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {['Birthdays', 'Anniversaries', 'Festive Gifting', 'Corporate Gifting'].map(tag => (
+                    <Badge key={tag} variant="secondary" className="bg-secondary/50 text-primary/70">{tag}</Badge>
+                  ))}
+                </div>
+              </div>
+              <div className="space-y-4">
+                <h4 className="font-serif font-bold text-primary flex items-center gap-2">
+                  <Info className="w-4 h-4 text-accent" />
+                  Storage & Freshness
+                </h4>
+                <div className="text-sm text-muted-foreground space-y-1">
+                  <p className="flex items-center gap-2">
+                    <span className="font-bold">Storage:</span> {product.storageInstructions || "Cool, dry place"}
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <Clock className="w-3.5 h-3.5" />
+                    Best within {product.shelfLife || "30 days"}
                   </p>
                 </div>
               </div>
-              <div className="flex items-start gap-3">
-                <ShieldCheck className="w-5 h-5 text-primary mt-0.5" />
-                <div>
-                  <h4 className="font-bold text-sm text-primary">Trust Badges</h4>
-                  <p className="text-xs text-muted-foreground">
-                    ✔ Fresh Handmade ✔ Premium Quality ✔ Safe & Hygienic
-                  </p>
-                </div>
-              </div>
+            </div>
+
+            <div className="bg-primary/5 rounded-xl p-6 mb-8 border border-primary/10">
+              <h4 className="font-bold text-primary mb-4 flex items-center gap-2">
+                <Truck className="w-5 h-5" />
+                Delivery Information
+              </h4>
+              <ul className="space-y-2 text-sm text-primary/80">
+                <li className="flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  Same-day delivery in Ahmedabad for orders before 3 PM
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  Free delivery above ₹1500 in Gujarat
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  Free delivery above ₹2500 Pan-India
+                </li>
+              </ul>
+            </div>
+
+            {/* Personalization Message */}
+            <div className="space-y-3 mb-8">
+              <Label htmlFor="gift-message" className="text-primary font-bold flex items-center justify-between">
+                <span>Add a gift message (optional)</span>
+                <span className={cn("text-xs font-normal", giftMessage.length > 110 ? "text-destructive" : "text-muted-foreground")}>
+                  {giftMessage.length}/120
+                </span>
+              </Label>
+              <Input
+                id="gift-message"
+                placeholder="Write a warm note for your loved one..."
+                value={giftMessage}
+                onChange={(e) => setGiftMessage(e.target.value.slice(0, 120))}
+                className="bg-white border-border focus:ring-accent"
+              />
             </div>
 
             {/* Actions */}
@@ -191,7 +246,7 @@ export default function ProductDetail() {
               <Button 
                 size="lg" 
                 className="h-12 flex-1 bg-primary text-white hover:bg-primary/90 text-base shadow-lg shadow-primary/20"
-                onClick={() => addToCart(product, quantity)}
+                onClick={() => addToCart(product, quantity, giftMessage.trim())}
               >
                 Add to Cart - ₹{Number(product.price) * quantity}
               </Button>

@@ -22,6 +22,8 @@ export const products = pgTable("products", {
   images: text("images").array().notNull().default(sql`ARRAY[]::text[]`), // Array of 4-5 images
   isBestseller: boolean("is_bestseller").default(false),
   rating: integer("rating").default(5), // 1-5
+  storageInstructions: text("storage_instructions").notNull().default("Store in a cool, dry place away from direct sunlight."),
+  shelfLife: text("shelf_life").notNull().default("30 days"),
 });
 
 export const reviews = pgTable("reviews", {
