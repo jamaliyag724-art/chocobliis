@@ -55,7 +55,7 @@ export function CartDrawer() {
                   <div key={item.id} className="flex gap-4">
                     <div className="h-20 w-20 rounded-md overflow-hidden bg-secondary/20 shrink-0">
                       <img 
-                        src={item.image} 
+                        src={item.images?.[0] || "/images/product-placeholder.jpg"} 
                         alt={item.name} 
                         className="h-full w-full object-cover"
                       />

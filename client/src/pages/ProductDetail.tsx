@@ -45,7 +45,7 @@ export default function ProductDetail() {
         <div className="text-center">
           <h2 className="text-2xl font-bold mb-2">Product not found</h2>
           <Link href="/shop">
-            <Button variant="link">Back to Shop</Button>
+            <Button variant="ghost">Back to Shop</Button>
           </Link>
         </div>
       </div>
